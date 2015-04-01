@@ -12,18 +12,27 @@
   };
 
 
-  var getTaskById = function(id) {
+  var db = (function() {
     var tasks = ['a', 'b', 'c'];
-    return tasks[id];
-  };
+    var workTimeMin = 0;
+    var workTimeSec = 7;
+    var restTimeMin = 0;
+    var restTimeSec = 2;
 
-  var getTaskCount = function() {
-    return 3;
-  };
+    return {
+      getTaskById: function(id) {
+        return tasks[id] || '';
+      },
+
+      taskCount: tasks.length,
+
+      workTime: (workTimeMin * 60 + workTimeSec) * 1000,
+
+      restTime: (restTimeMin * 60 + restTimeSec) * 1000
+    };
+  })();
 
   var nextTask = function() {
-    console.log('Next task()');
-
     st.prevElapsedTime = 0;
     st.curStreakStartTime = Date.now();
 
@@ -31,18 +40,18 @@
 
       st.hat = Hats.REST;
       updateTask('Rest');
-      st.targetTime = 2 * 1000;
+      st.targetTime = db.restTime;
 
     } else {
 
       st.hat = Hats.WORK;
       st.taskId++;
-      if (st.taskId >= getTaskCount()) {
+      if (st.taskId >= db.taskCount) {
         st.taskId = 0;
       }
-      updateTask(getTaskById(st.taskId));
+      updateTask(db.getTaskById(st.taskId));
 
-      st.targetTime = 5 * 1000; // 15 secs
+      st.targetTime = db.workTime;
 
     }
 
@@ -62,7 +71,9 @@
     $('#task').text(task);
   };
 
-  var updateUI = function() {
+  var updateButton = function() {
+    var iconStr = st.state === States.RUNNING ? 'pause' : 'play';
+    $('#run').html('<i class="fa fa-' + iconStr + '"></i>');
   };
 
   var tick = function() {
@@ -73,9 +84,8 @@
     var timeRemaining = st.targetTime - totalTime;
     if (timeRemaining < 0) timeRemaining = 0;
 
-    updateTimer(timeRemaining);
-
     if (timeRemaining === 0) nextTask();
+    else updateTimer(timeRemaining);
   };
 
   $('#run').click(function() {
@@ -84,19 +94,18 @@
 
       st.state = States.RUNNING;
       nextTask();
-      btn.text('Pause');
 
     } else if (st.state === States.RUNNING) {
 
       st.state = States.PAUSED;
-      btn.text('Resume');
 
     } else { // States.PAUSED
 
       st.state = States.RUNNING;
-      btn.text('Pause');
 
     }
+
+    updateButton();
   });
 
   setInterval(tick, 200);
