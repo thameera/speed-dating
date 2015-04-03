@@ -2,14 +2,7 @@
   var States = {RUNNING: 0, PAUSED: 1, STOPPED: 2};
   var Hats = {WORK: 0, REST: 1};
   // Current state
-  var st = {
-    state: States.STOPPED,
-    hat: Hats.REST,
-    prevElapsedTime: 0,
-    curStreakStartTime: 0,
-    targetTime: 0,
-    taskId: -1
-  };
+  var st = {};
 
 
   var db = (function() {
@@ -31,6 +24,19 @@
       restTime: (restTimeMin * 60 + restTimeSec) * 1000
     };
   })();
+
+  var initState = function() {
+    st = {
+      state: States.STOPPED,
+      hat: Hats.REST,
+      prevElapsedTime: 0,
+      curStreakStartTime: 0,
+      targetTime: 0,
+      taskId: -1
+    };
+    updateTimer(0);
+    updateTask('');
+  };
 
   var nextTask = function() {
     st.prevElapsedTime = 0;
@@ -71,7 +77,7 @@
     $('#task').text(task);
   };
 
-  var updateButton = function() {
+  var updateRunButton = function() {
     var iconStr = st.state === States.RUNNING ? 'pause' : 'play';
     $('#run').html('<i class="fa fa-' + iconStr + '"></i>');
   };
@@ -88,6 +94,7 @@
     else updateTimer(timeRemaining);
   };
 
+  /*** Event listeners ***/
   $('#run').click(function() {
     var btn = $('#run');
     if (st.state === States.STOPPED) {
@@ -105,8 +112,16 @@
 
     }
 
-    updateButton();
+    updateRunButton();
   });
+
+  $('#stop').click(function() {
+    initState();
+    updateRunButton();
+  });
+
+  /*** Start here ***/
+  initState();
 
   setInterval(tick, 200);
 })();
