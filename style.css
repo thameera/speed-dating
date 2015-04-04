@@ -26,6 +26,10 @@ body {
   font-size: 36px;
 }
 
+.light-font {
+  color: #B0B0B0;
+}
+
 /* Edit Screen */
 
 .edit-time-row .pure-input-1 {
@@ -37,3 +41,4 @@ body {
   font-size: 30px;
   margin-bottom: 20px;
 }
+
