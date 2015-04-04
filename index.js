@@ -120,6 +120,12 @@
     updateRunButton();
   });
 
+  $('#edit').click(function() {
+    var gui = require('nw.gui');
+    var win = gui.Window.get().window;
+    win.location = 'edit.html';
+  });
+
   /*** Start here ***/
   initState();
 

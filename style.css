@@ -1,5 +1,5 @@
 body {
-  margin-top: 20px;
+  margin: 30px;
 }
 
 .center {
@@ -7,6 +7,7 @@ body {
 }
 
 .btn-row {
+  margin: 10px;
 }
 
 .countdown-row {
@@ -25,3 +26,14 @@ body {
   font-size: 36px;
 }
 
+/* Edit Screen */
+
+.edit-time-row .pure-input-1 {
+  padding: 0.4em 0.3em;
+  width: 90%;
+}
+
+.settings-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}

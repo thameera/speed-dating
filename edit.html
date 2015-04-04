@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="node_modules/purecss/build/pure.css" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Speed Dating - Edit</title>
+</head>
+
+<body>
+  <div class="pure-g">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5 center settings-title">Settings</div>
+  </div>
+  <div class="pure-g pure-form edit-time-row">
+    <label class="pure-u-2-5">Work time</label>
+    <div class="pure-u-1-5">
+      <input class="pure-input-1" type="number" min="0" id="workmin"/>
+    </div>
+    <div class="pure-u-1-5">
+      <input class="pure-input-1" type="number" min="0" id="worksec"/>
+    </div>
+  </div>
+  <div class="pure-g pure-form edit-time-row">
+    <label class="pure-u-2-5">Rest time</label>
+    <div class="pure-u-1-5">
+      <input class="pure-input-1" type="number" min="0" id="restmin"/>
+    </div>
+    <div class="pure-u-1-5">
+      <input class="pure-input-1" type="number" min="0" id="restsec"/>
+    </div>
+  </div>
+  <div class="pure-form add-tasks-section">
+    <div class="pure-group">
+      <label class="title">Tasks:</label>
+      <input class="pure-input-1-5" type="text" />
+      <input class="pure-input-1-5" type="text" />
+      <input class="pure-input-1-5" type="text" />
+      <input class="pure-input-1-5" type="text" />
+      <input class="pure-input-1-5" type="text" />
+    </div>
+  </div>
+  <div class="pure-g btn-row">
+    <div class="pure-u-1-4"></div>
+    <div class="pure-u-1-4">
+      <button id="save" class="pure-button"><i class="fa fa-check"></i></button>
+    </div>
+    <div class="pure-u-1-4">
+      <button id="cancel" class="pure-button"><i class="fa fa-times"></i></button>
+    </div>
+  </div>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/lodash/index.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>
+
+
