@@ -6,11 +6,12 @@
 
 
   var db = (function() {
-    var tasks = ['a', 'b', 'c'];
-    var workTimeMin = 0;
-    var workTimeSec = 7;
-    var restTimeMin = 0;
-    var restTimeSec = 2;
+    var tasks = localStorage.tasks || '["Task 1", "Task 2"]';
+    tasks = JSON.parse(tasks);
+    var workTimeMin = Number(localStorage.workTimeMin || '0');
+    var workTimeSec = Number(localStorage.workTimeSec || '0');
+    var restTimeMin = Number(localStorage.restTimeMin || '0');
+    var restTimeSec = Number(localStorage.restTimeSec || '0');
 
     return {
       getTaskById: function(id) {
@@ -65,7 +66,7 @@
   };
 
   var updateTimer = function(timeRemaining) {
-    var secs = timeRemaining / 1000;
+    var secs = Math.floor(timeRemaining / 1000);
     var mins = Math.floor(secs / 60);
     secs -= mins * 60;
     minStr = mins.toFixed(0).toString();
