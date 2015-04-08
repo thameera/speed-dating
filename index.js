@@ -40,7 +40,10 @@
   };
 
   var nextTask = function() {
-    document.getElementById('beep').play();
+    if (st.taskId > -1) {
+      document.getElementById('beep').play();
+    }
+
     st.prevElapsedTime = 0;
     st.curStreakStartTime = Date.now();
 
