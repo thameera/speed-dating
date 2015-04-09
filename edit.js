@@ -10,8 +10,12 @@
     var tasks = localStorage.tasks || '[]';
     tasks = JSON.parse(tasks);
     var inputs = $('.add-tasks-section input');
+    var block = $('.input-group');
     tasks.forEach(function(task, i) {
       $(inputs[i]).val(task);
+      if (i >= inputs.length){
+        $('<div><input class="pure-input-1-5" type="text" id="input" value=' + task +'> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
+      }
     });
   };
 
@@ -40,6 +44,19 @@
     var win = gui.Window.get().window;
     win.location = 'index.html';
   };
+
+  /*
+  * Add more tasks
+  */
+
+  $('#addNew').click(function() {
+    var block = $('.input-group');
+    $('<div><input class="pure-input-1-5" type="text" id="input"/> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
+  });
+
+  $('.input-group').on('click', '.remNew', function(){
+    $(this).parent().remove();
+  });
 
   /*** Event listeners ***/
   $('#save').click(function() {

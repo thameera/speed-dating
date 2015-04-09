@@ -42,3 +42,10 @@ body {
   margin-bottom: 20px;
 }
 
+.remNew, #addNew {
+  text-decoration: none;
+}
+
+#input {
+  display: inline-block;
+}
