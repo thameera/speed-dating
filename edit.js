@@ -10,11 +10,11 @@
     var tasks = localStorage.tasks || '[]';
     tasks = JSON.parse(tasks);
     var inputs = $('.add-tasks-section input');
-    var block = $('.pure-group');
+    var block = $('.input-group');
     tasks.forEach(function(task, i) {
       $(inputs[i]).val(task);
       if (i >= inputs.length){
-        $('<div class="input-group"><input class="pure-input-1-5" type="text" id="input" value=' + task +'> <a class="fa fa-remove" href="#" id="remNew"></a></div>').appendTo(block);
+        $('<div><input class="pure-input-1-5" type="text" id="input" value=' + task +'> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
       }
     });
   };
@@ -50,11 +50,11 @@
   */
 
   $('#addNew').click(function() {
-    var block = $('.pure-group');
-    $('<div class="input-group"><input class="pure-input-1-5" type="text" id="input"/> <a class="fa fa-remove" href="#" id="remNew"></a></div>').appendTo(block);
+    var block = $('.input-group');
+    $('<div><input class="pure-input-1-5" type="text" id="input"/> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
   });
 
-  $(document).on('click', '#remNew', function(){
+  $('.input-group').on('click', '.remNew', function(){
     $(this).parent().remove();
   });
 

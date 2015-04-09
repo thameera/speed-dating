@@ -42,7 +42,7 @@ body {
   margin-bottom: 20px;
 }
 
-.fa {
+.remNew, #addNew {
   text-decoration: none;
 }
 
