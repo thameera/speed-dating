@@ -89,7 +89,7 @@
   };
 
   var updateNextTask = function(task) {
-    $('#nextTask').text(task);
+    $('#next-task').text(task);
   };
 
   var updateRunButton = function() {

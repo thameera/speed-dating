@@ -26,7 +26,7 @@ body {
   font-size: 36px;
 }
 
-#nextTask {
+#next-task {
   color: #6E6B6B;
 }
 
@@ -46,10 +46,11 @@ body {
   margin-bottom: 20px;
 }
 
-.remNew, #addNew {
+.rem-new, #add-new {
   text-decoration: none;
 }
 
 #input {
   display: inline-block;
 }
+

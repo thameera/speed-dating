@@ -14,7 +14,7 @@
     tasks.forEach(function(task, i) {
       $(inputs[i]).val(task);
       if (i >= inputs.length){
-        $('<div><input class="pure-input-1-5" type="text" id="input" value=' + task +'> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
+        $('<div><input class="pure-input-1-5" type="text" id="input" value=' + task +'> <a class="fa fa-remove rem-new" href="#"></a></div>').appendTo(block);
       }
     });
   };
@@ -49,12 +49,12 @@
   * Add more tasks
   */
 
-  $('#addNew').click(function() {
+  $('#add-new').click(function() {
     var block = $('.input-group');
-    $('<div><input class="pure-input-1-5" type="text" id="input"/> <a class="fa fa-remove remNew" href="#"></a></div>').appendTo(block);
+    $('<div><input class="pure-input-1-5" type="text" id="input"/> <a class="fa fa-remove rem-new" href="#"></a></div>').appendTo(block);
   });
 
-  $('.input-group').on('click', '.remNew', function(){
+  $('.input-group').on('click', '.rem-new', function(){
     $(this).parent().remove();
   });
 
