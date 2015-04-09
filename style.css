@@ -26,6 +26,10 @@ body {
   font-size: 36px;
 }
 
+#nextTask {
+  color: #6E6B6B;
+}
+
 .light-font {
   color: #B0B0B0;
 }

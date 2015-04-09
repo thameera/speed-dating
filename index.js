@@ -51,6 +51,11 @@
 
       st.hat = Hats.REST;
       updateTask('Rest');
+      if (st.taskId + 1 < db.taskCount) {
+        updateNextTask('Next Task: ' + db.getTaskById(st.taskId + 1));
+      } else {
+        updateNextTask('Next Task: ' + db.getTaskById(0));
+      }
       st.targetTime = db.restTime;
 
     } else {
@@ -61,6 +66,7 @@
         st.taskId = 0;
       }
       updateTask(db.getTaskById(st.taskId));
+      updateNextTask('');
 
       st.targetTime = db.workTime;
 
@@ -80,6 +86,10 @@
 
   var updateTask = function(task) {
     $('#task').text(task);
+  };
+
+  var updateNextTask = function(task) {
+    $('#nextTask').text(task);
   };
 
   var updateRunButton = function() {
