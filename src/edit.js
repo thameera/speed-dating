@@ -9,6 +9,8 @@
     $('#worksec').val( localStorage.workTimeSec || 0 );
     $('#restmin').val( localStorage.restTimeMin || 0 );
     $('#restsec').val( localStorage.restTimeSec || 0 );
+    $('#notifications').prop( 'checked', localStorage.showNotifications === 'true' );
+
     tasks = JSON.parse(localStorage.tasks || '[]');
 
     $('#addable').addableInput({initValues: tasks});
@@ -25,6 +27,7 @@
     localStorage.workTimeSec = $('#worksec').val();
     localStorage.restTimeMin = $('#restmin').val();
     localStorage.restTimeSec = $('#restsec').val();
+    localStorage.showNotifications = $('#notifications').is(':checked');
     localStorage.tasks = JSON.stringify(tasks);
     return true;
   };

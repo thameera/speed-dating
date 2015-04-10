@@ -12,6 +12,7 @@
     var workTimeSec = Number(localStorage.workTimeSec || '0');
     var restTimeMin = Number(localStorage.restTimeMin || '0');
     var restTimeSec = Number(localStorage.restTimeSec || '0');
+    var showNotifications = Boolean(localStorage.showNotifications === 'true');
 
     return {
       getTaskById: function(id) {
@@ -22,7 +23,9 @@
 
       workTime: (workTimeMin * 60 + workTimeSec) * 1000,
 
-      restTime: (restTimeMin * 60 + restTimeSec) * 1000
+      restTime: (restTimeMin * 60 + restTimeSec) * 1000,
+
+      showNotifications: showNotifications
     };
   })();
 
@@ -37,6 +40,14 @@
     };
     updateTimer(0);
     updateTask('');
+  };
+
+  var notify = function(task){
+    var notification = new Notification("Task", {body: task});
+    notification.onshow = function () {
+      // auto close after 2 second
+      setTimeout(function() {notification.close();}, 2000);
+    }
   };
 
   var nextTask = function() {
@@ -67,7 +78,9 @@
       }
       updateTask(db.getTaskById(st.taskId));
       updateNextTask('');
-
+      if (db.showNotifications){
+        notify(db.getTaskById(st.taskId));
+      }
       st.targetTime = db.workTime;
 
     }
