@@ -7,6 +7,7 @@
     $('#worksec').val( localStorage.workTimeSec || 0 );
     $('#restmin').val( localStorage.restTimeMin || 0 );
     $('#restsec').val( localStorage.restTimeSec || 0 );
+    $('#bell').val( localStorage.bellSound || 'bell1.wav');
     var tasks = localStorage.tasks || '[]';
     tasks = JSON.parse(tasks);
     var inputs = $('.add-tasks-section input');
@@ -27,6 +28,7 @@
     localStorage.workTimeSec = $('#worksec').val();
     localStorage.restTimeMin = $('#restmin').val();
     localStorage.restTimeSec = $('#restsec').val();
+    localStorage.bellSound = $('#bell').val();
     var tasks = [];
     $('.add-tasks-section input').each(function(i, el) {
       tasks.push( $(el).val().trim() );
