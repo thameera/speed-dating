@@ -12,6 +12,7 @@
     var workTimeSec = Number(localStorage.workTimeSec || '0');
     var restTimeMin = Number(localStorage.restTimeMin || '0');
     var restTimeSec = Number(localStorage.restTimeSec || '0');
+    var bellSound = (localStorage.bellSound || 'bell1.wav');
 
     return {
       getTaskById: function(id) {
@@ -22,7 +23,9 @@
 
       workTime: (workTimeMin * 60 + workTimeSec) * 1000,
 
-      restTime: (restTimeMin * 60 + restTimeSec) * 1000
+      restTime: (restTimeMin * 60 + restTimeSec) * 1000,
+
+      bellSound: bellSound
     };
   })();
 
@@ -37,6 +40,7 @@
     };
     updateTimer(0);
     updateTask('');
+    $('#beep').attr('src', db.bellSound);
   };
 
   var nextTask = function() {
