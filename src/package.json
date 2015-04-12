@@ -1,8 +1,9 @@
 {
   "name": "speed-dating",
+  "version": "0.0.1",
   "main": "index.html",
   "window": {
-    "toolbar": true,
+    "toolbar": false,
     "width": 360,
     "height": 500
   },

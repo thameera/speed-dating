@@ -23,7 +23,21 @@ Install the dependencies
 
 Run the app with
 
-    nw .
+    nw src
+
+## Building binaries
+
+This assumes that you have already cloned the repo.
+
+Install `grunt`.
+
+    npm install -g grunt-cli
+
+Run grunt. If you're running this for the first time, it will take some time to download the nw.js binaries for all platforms.
+
+    grunt
+
+This will create the binaries for Linux, OS X and Windows in the `dist/` directory.
 
 ## Contributing
 
