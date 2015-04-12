@@ -75,6 +75,16 @@
     tick();
   };
 
+  var pauseTask = function() {
+    st.state = States.PAUSED;
+    st.prevElapsedTime += Date.now() - st.curStreakStartTime;
+  };
+
+  var resumeTask = function() {
+    st.state = States.RUNNING;
+    st.curStreakStartTime = Date.now();
+  };
+
   var updateTimer = function(timeRemaining) {
     var secs = Math.floor(timeRemaining / 1000);
     var mins = Math.floor(secs / 60);
@@ -119,11 +129,11 @@
 
     } else if (st.state === States.RUNNING) {
 
-      st.state = States.PAUSED;
+      pauseTask();
 
     } else { // States.PAUSED
 
-      st.state = States.RUNNING;
+      resumeTask();
 
     }
 
