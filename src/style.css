@@ -1,5 +1,5 @@
 body {
-  margin: 30px;
+  margin: 20px;
 }
 
 .center {
@@ -46,11 +46,43 @@ body {
   margin-bottom: 20px;
 }
 
-.rem-new, #add-new {
-  text-decoration: none;
+.add-tasks-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-#input {
-  display: inline-block;
+.add-tasks-section label {
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.addable-row input {
+  display: inline !important;
+  margin-bottom: 0 !important;
+  padding: 0.4em 0.4em !important;
+}
+
+.addable-row button {
+  margin: 0 0.1em;
+  padding: 0.5em 0.8em;
+}
+
+.button-small {
+  font-size: 75%;
+}
+
+.button-success,
+.button-error {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+  background: rgb(28, 184, 65); /* green */
+}
+
+.button-error {
+  background: rgb(202, 60, 60); /* maroon */
 }
 

@@ -36,18 +36,12 @@
       <input class="pure-input-1" type="number" min="0" id="restsec"/>
     </div>
   </div>
-  <div class="pure-form add-tasks-section">
-    <div class="pure-group input-group">
-      <label class="title">Tasks:</label>
-      <div>
-        <input class="pure-input-1-5" type="text" />
-      </div>
-      <div>
-        <input class="pure-input-1-5" type="text" id="input"/>
-        <a class="fa fa-plus" href="#" id="add-new"></a>
-      </div>
-    </div>
+
+  <div class="add-tasks-section">
+    <label>Tasks:</label>
+    <div id="addable" class="pure-form"></div>
   </div>
+
   <div class="pure-g btn-row">
     <div class="pure-u-1-4"></div>
     <div class="pure-u-1-4">
@@ -60,6 +54,7 @@
 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/lodash/index.js"></script>
+  <script src="addable-input.js"></script>
   <script src="edit.js"></script>
 </body>
 </html>
