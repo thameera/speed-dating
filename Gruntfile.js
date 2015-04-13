@@ -3,7 +3,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('src/package.json'),
     nodewebkit: {
       options: {
+        appName: 'Speed Dating',
         build_dir: './dist',
+        version: 'v0.12.0',
         // specifiy what to build
         mac: true,
         win: true,

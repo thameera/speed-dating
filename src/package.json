@@ -1,11 +1,14 @@
 {
   "name": "speed-dating",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.html",
   "window": {
     "toolbar": false,
+    "title": "Speed Dating",
     "width": 360,
-    "height": 500
+    "height": 500,
+    "min_width": 360,
+    "min_height": 450
   },
   "dependencies": {
     "font-awesome": "^4.3.0",
