@@ -62,16 +62,15 @@
 
       st.hat = Hats.REST;
       updateTask('Rest');
+      var nextTask;
       if (st.taskId + 1 < db.taskCount) {
-        updateNextTask('Next Task: ' + db.getTaskById(st.taskId + 1));
-        if (db.showNotifications){
-          notify('Rest', 'Next task: ' + db.getTaskById(st.taskId + 1));
-        }
+        nextTask = db.getTaskById(st.taskId + 1);
       } else {
-        updateNextTask('Next Task: ' + db.getTaskById(0));
-        if (db.showNotifications){
-          notify('Rest', 'Next task: ' + db.getTaskById(0));
-        }
+        nextTask = db.getTaskById(0);
+      }
+      updateNextTask('Next Task: ' + nextTask);
+      if (db.showNotifications){
+        notify('Rest', 'Next task: ' + nextTask);
       }
       st.targetTime = db.restTime;
 
