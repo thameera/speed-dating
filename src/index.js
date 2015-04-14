@@ -42,8 +42,8 @@
     updateTask('');
   };
 
-  var notify = function(task){
-    var notification = new Notification("Task", {body: task});
+  var notify = function(title, task){
+    var notification = new Notification(title, {body: task});
     notification.onshow = function () {
       // auto close after 2 second
       setTimeout(function() {notification.close();}, 2000);
@@ -64,8 +64,14 @@
       updateTask('Rest');
       if (st.taskId + 1 < db.taskCount) {
         updateNextTask('Next Task: ' + db.getTaskById(st.taskId + 1));
+        if (db.showNotifications){
+          notify('Rest', 'Next task: ' + db.getTaskById(st.taskId + 1));
+        }
       } else {
         updateNextTask('Next Task: ' + db.getTaskById(0));
+        if (db.showNotifications){
+          notify('Rest', 'Next task: ' + db.getTaskById(0));
+        }
       }
       st.targetTime = db.restTime;
 
@@ -79,7 +85,7 @@
       updateTask(db.getTaskById(st.taskId));
       updateNextTask('');
       if (db.showNotifications){
-        notify(db.getTaskById(st.taskId));
+        notify('Task', db.getTaskById(st.taskId));
       }
       st.targetTime = db.workTime;
 
