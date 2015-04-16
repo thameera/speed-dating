@@ -6,7 +6,10 @@ This is a cross-platform [nw.js](https://github.com/nwjs/nw.js) app.
 
 ## Downloads
 
-_Coming soon_
+* [Linux 32-bit](https://github.com/thameera/speed-dating/releases/download/v0.1.0/Speed.Dating.Linux.32.zip)
+* [Linux 64-bit](https://github.com/thameera/speed-dating/releases/download/v0.1.0/Speed.Dating.Linux.64.zip)
+* [OS X](https://github.com/thameera/speed-dating/releases/download/v0.1.0/Speed.Dating.OS.X.zip)
+* [Windows](https://github.com/thameera/speed-dating/releases/download/v0.1.0/Speed.Dating.Windows.zip)
 
 ## Running from source
 
